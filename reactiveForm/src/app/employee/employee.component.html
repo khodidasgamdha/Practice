@@ -1,0 +1,287 @@
+<!-- form -->
+<form [formGroup]="form" class="container p-4" id="form">
+
+    <h2 id="heading" >Employee Details</h2>
+
+    <!-- first row -->
+    <div class="form-row">
+        <!-- firstname -->
+        <div class="form-group col-sm-4">
+            <label for="firstname" id="require">First Name</label>
+            <input 
+                formControlName="firstname" 
+                id="firstname" 
+                type="text" 
+                class="form-control"
+                placeholder="First Name">
+
+            <!-- errors -->
+            <div *ngIf="firstname.touched && firstname.invalid" class="alert alert-danger">
+                <div *ngIf="firstname.errors.required">Enter First Name</div>
+                <div *ngIf="firstname.errors.minlength">Enter Minimum {{ firstname.errors.minlength.requiredLength }} Character</div>
+                <div *ngIf="firstname.errors.maxlength">Only {{ firstname.errors.maxlength.requiredLength }} Character Allowed</div>
+                <div *ngIf="firstname.errors.pattern">Please, Enter Valid First Name</div>
+            </div>
+        </div>
+
+        <!-- lastname -->
+        <div class="form-group col-sm-4">
+            <label for="lastname" id="require">Last Name</label>
+            <input 
+                formControlName="lastname" 
+                id="lastname" 
+                type="text" 
+                class="form-control"
+                placeholder="Last Name">
+
+            <!-- errors -->
+            <div *ngIf="lastname.touched && lastname.invalid" class="alert alert-danger">
+                <div *ngIf="lastname.errors.required">Enter Last Name</div>
+                <div *ngIf="lastname.errors.minlength">Enter Minimum {{ lastname.errors.minlength.requiredLength }} Character</div>
+                <div *ngIf="lastname.errors.maxlength">Only {{ lastname.errors.maxlength.requiredLength }} Character Allowed</div>
+                <div *ngIf="lastname.errors.pattern">Please, Enter Valid Last Name</div>
+            </div>
+        </div>
+
+        <!-- email -->
+        <div class="form-group col-sm-4">
+            <label for="email" id="require">Email</label>
+            <input 
+                formControlName="email" 
+                id="email" 
+                type="email" 
+                class="form-control"
+                placeholder="e.g. john@gmail.com">
+
+            <!-- errors -->
+            <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                <div *ngIf="email.errors.required">Enter Email</div>
+                <div *ngIf="email.errors.email">Please, Enter Valid Email</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- second row -->
+    <div class="form-row">
+        <!-- contact number -->
+        <div class="form-group col-sm-6">
+            <label for="contactNumber" id="require">Contact Number</label>
+            <input 
+                formControlName="contactNumber" 
+                id="contactNumber" 
+                type="text" 
+                class="form-control"
+                placeholder="e.g. 9876543210">
+
+            <!-- errors -->
+            <div *ngIf="contactNumber.touched && contactNumber.invalid" class="alert alert-danger">
+                <div *ngIf="contactNumber.errors.required">Enter Contact Number</div>
+                <div *ngIf="contactNumber.errors.minlength || contactNumber.errors.maxlength">Please, Enter 10 Digit Contact Number</div>
+                <div *ngIf="contactNumber.errors.pattern">Please, Enter Valid Contact Number</div>
+            </div>
+        </div>
+
+        <!-- Alternate Contact Number -->
+        <div class="form-group col-sm-6">
+            <label for="alternateCN">Alternate Contact Number</label>
+            <input 
+                formControlName="alternateCN"
+                id="alternateCN" 
+                type="text" 
+                class="form-control"
+                placeholder="e.g. 9876543210">
+
+            <!-- errors -->
+            <div *ngIf="alternateCN.touched && alternateCN.invalid" class="alert alert-danger">
+                <div *ngIf="alternateCN.errors.minlength || alternateCN.errors.maxlength">Please, Enter 10 Digit Alternate Contact Number</div>
+                <div *ngIf="alternateCN.errors.pattern">Please, Enter Valid Alternate Contact Number</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- third row -->
+    <div class="form-row">
+        <!-- Designation -->
+        <div class="form-group col-sm-4">
+            <label for="designation" id="require">Designation</label>
+            <input 
+                formControlName="designation" 
+                id="designation" 
+                type="text" 
+                class="form-control"
+                placeholder="Designation">
+
+            <!-- errors -->
+            <div *ngIf="designation.touched && designation.invalid" class="alert alert-danger">
+                <div *ngIf="designation.errors.required">Enter Designation</div>
+                <div *ngIf="designation.errors.pattern">Please, Enter Proper Designation</div>
+            </div>
+        </div>
+
+        <!-- experience -->
+        <div class="form-group col-sm-4">
+            <label for="experience" id="require">Experience</label>
+            <input 
+                formControlName="experience"
+                min="0" 
+                step="1" 
+                oninput="validity.valid||(value='');" 
+                id="experience" 
+                type="number" 
+                class="form-control"
+                placeholder="Experience">
+
+            <!-- errors -->
+            <div *ngIf="experience.touched && experience.invalid" class="alert alert-danger">
+                <div *ngIf="experience.errors.required">Enter years of Experience</div>
+            </div>
+        </div>
+
+        <!-- Joining date -->
+        <div class="form-group col-sm-4">
+            <label for="joiningDate" id="require">Joining Date</label>
+            <input 
+                formControlName="joiningDate" 
+                id="joiningDate" 
+                type="date" 
+                class="form-control">
+
+            <!-- errors -->
+            <div *ngIf="joiningDate.touched && joiningDate.invalid" class="alert alert-danger">
+                <div *ngIf="joiningDate.errors.required">Enter Joining Date</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- currunt address -->
+    <div class="form-group">
+        <label for="address">Address</label>
+        <textarea 
+            rows="2"
+            formControlName="address"
+            id="address"  
+            class="form-control"
+            placeholder="Address .....">
+        </textarea>
+
+        <!-- errors -->
+        <div *ngIf="address.touched && address.invalid" class="alert alert-danger">
+            <div *ngIf="address.errors.minlength">Please, Minimum {{ address.errors.minlength.requiredLength }} Character</div>
+        </div>
+    </div>
+
+    <!-- fifth row -->
+    <div class="form-row">
+        <!-- city -->
+        <div class="form-group col-sm-4">
+            <label for="city">City</label>
+            <input 
+                formControlName="city"
+                id="city" 
+                type="text" 
+                class="form-control"
+                placeholder="City">
+
+            <!-- errors -->
+            <div *ngIf="city.touched && city.invalid" class="alert alert-danger">
+                <div *ngIf="city.errors.pattern">Please, Enter Proper City</div>
+            </div>
+        </div>
+
+        <!-- state -->
+        <div class="form-group col-sm-4">
+            <label for="state">State</label>
+            <input 
+                formControlName="state"
+                id="state" 
+                type="text" 
+                class="form-control"
+                placeholder="State">
+
+            <!-- errors -->
+            <div *ngIf="state.touched && state.invalid" class="alert alert-danger">
+                <div *ngIf="state.errors.pattern">Please, Enter Proper State</div>
+            </div>
+        </div>
+
+        <!-- Pin code -->
+        <div class="form-group col-sm-4">
+            <label for="pincode">Pin code</label>
+            <input 
+                formControlName="pincode"
+                id="pincode" 
+                type="text" 
+                class="form-control"
+                placeholder="e.g. 360005">
+
+            <!-- errors -->
+            <div *ngIf="pincode.touched && pincode.invalid" class="alert alert-danger">
+                <div *ngIf="pincode.errors.minlength || pincode.errors.maxlength">Please, Enter 6 Digit Pincode Number</div>
+                <div *ngIf="pincode.errors.pattern">Please, Enter Valid Pincode Number</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- sixth row -->
+    <div class="form-row">
+        <!-- PAN number -->
+        <div class="form-group col-sm-4">
+            <label for="panNumber" id="require">PAN Number</label>
+            <input 
+                formControlName="panNumber" 
+                panNumber
+                id="panNumber" 
+                type="text" 
+                class="form-control"
+                placeholder="e.g. CKTTP4022E">
+
+            <!-- errors -->
+            <div *ngIf="panNumber.touched && panNumber.invalid" class="alert alert-danger">
+                <div *ngIf="panNumber.errors.required">Enter PAN Number</div>
+                <div *ngIf="panNumber.errors.minlength || panNumber.errors.maxlength">Please, Enter 10 Digit PAN Number</div>
+                <div *ngIf="panNumber.errors.pattern">Please, Enter Valid PAN Number</div>
+            </div>
+        </div>
+
+        <!-- Adhar Number -->
+        <div class="form-group col-sm-4">
+            <label for="adharNumber" id="require">Adhar Number</label>
+            <input 
+                formControlName="adharNumber" 
+                id="adharNumber" 
+                type="text" 
+                class="form-control"
+                placeholder="e.g. 326598215487">
+
+            <!-- errors -->
+            <div *ngIf="adharNumber.touched && adharNumber.invalid" class="alert alert-danger">
+                <div *ngIf="adharNumber.errors.required">Enter Adhar Number</div>
+                <div *ngIf="adharNumber.errors.minlength || adharNumber.errors.maxlength">Please, Enter 12 Digit Adhar Number</div>
+                <div *ngIf="adharNumber.errors.pattern">Please, Enter Valid Adhar Number</div>
+            </div>
+        </div>
+
+        <!-- Passport Number -->
+        <div class="form-group col-sm-4">
+            <label for="passportNumber">Passport Number</label>
+            <input 
+                formControlName="passportNumber" 
+                id="passportNumber" 
+                type="text" 
+                class="form-control"
+                placeholder="e.g. 32549865">
+
+            <!-- errors -->
+            <div *ngIf="passportNumber.touched && passportNumber.invalid" class="alert alert-danger">
+                <div *ngIf="passportNumber.errors.minlength || passportNumber.errors.maxlength">Please, Enter 9 Digit Passport Number</div>
+                <div *ngIf="passportNumber.errors.pattern">Please, Enter Valid Passport Number</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- submit -->
+    <div class="text-center">
+        <button class="btn btn-primary" type="submit" (click)="submit()">Submit</button>
+    </div>
+
+</form>

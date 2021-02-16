@@ -1,0 +1,39 @@
+#heading {
+    text-align: center;
+    font-family: cursive;
+    font-weight: bold;
+    color: lightcoral;
+    margin: -10px 0 30px 0;
+}
+
+#form {
+    width: 50%;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: rgb(241, 236, 236);
+    margin-top: 10px;
+}
+
+label {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border-left: 5px solid red; 
+}
+
+.form-control.ng-touched.ng-valid{
+    border-left: 5px solid green; 
+}
+
+#require::after {     
+    content: " *";     
+    color: red; 
+}
+
+.btn {
+    width: 150px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
